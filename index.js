@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 // Database Connection
 const connectDB = require("./src/db.js");
 const ShoppingListRouter = require("./src/routes/ShoppingListRoutes.js");
+const NotificationRouter = require("./src/routes/NotificationRoutes.js");
 connectDB();
 
 // Define Routes
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api", ShoppingListRouter);
+app.use("/api", NotificationRouter);
 
 // Create Server
 const server = http.createServer(app);
